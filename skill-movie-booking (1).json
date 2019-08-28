@@ -1,0 +1,1149 @@
+{
+  "name": "movie booking",
+  "intents": [
+    {
+      "intent": "yes",
+      "examples": [
+        {
+          "text": "yes"
+        },
+        {
+          "text": "yep"
+        },
+        {
+          "text": "yeah"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "no",
+      "examples": [
+        {
+          "text": "no"
+        },
+        {
+          "text": "nah"
+        },
+        {
+          "text": "nope"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "tickets",
+      "examples": [
+        {
+          "text": "tickets"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "book-ticket",
+      "examples": [
+        {
+          "text": "I want to watch"
+        },
+        {
+          "text": "Book a ticket"
+        },
+        {
+          "text": "I want to see"
+        },
+        {
+          "text": "book film ticket"
+        },
+        {
+          "text": "book film"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "whats-on",
+      "examples": [
+        {
+          "text": "whats on"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "hello",
+      "examples": [
+        {
+          "text": "nice to meet you"
+        },
+        {
+          "text": "good evening"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "whats up?"
+        },
+        {
+          "text": "hi"
+        },
+        {
+          "text": "hey"
+        },
+        {
+          "text": "hello"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-time",
+      "values": []
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    },
+    {
+      "entity": "movies",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "John Wick",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Aladdin",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Detective Pikachu",
+          "synonyms": [
+            "Pokemon movie"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Avengers",
+          "synonyms": [
+            "Endgame"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "The Lego Movie 2",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Eighth Grade",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Captain Marvel",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "cinema",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Tivoli",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Odeon",
+          "synonyms": [
+            "Kingsmead"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Cineworld",
+          "synonyms": [
+            "Bristol"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "The Little Theatre",
+          "synonyms": [
+            "little cinema"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": []
+    },
+    {
+      "entity": "sys-person",
+      "values": []
+    },
+    {
+      "entity": "sys-location",
+      "values": []
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-07-10"
+    }
+  },
+  "skill_id": "b5f513d4-dcf9-44f7-9864-3966f0a9b930",
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay! No worries"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1559671867466",
+      "context": {
+        "Date": "...",
+        "Time": "...",
+        "MovieChoice": "...",
+        "TicketNumber": "..."
+      },
+      "metadata": {},
+      "conditions": "#no",
+      "dialog_node": "node_5_1559671867466",
+      "previous_sibling": "node_4_1559671867466"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay! Booked"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1559671867466",
+      "metadata": {},
+      "conditions": "#yes",
+      "dialog_node": "node_4_1559671867466"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, no worries"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_24_1558621533338",
+      "context": {
+        "MovieChoice": "..."
+      },
+      "metadata": {},
+      "conditions": "#no",
+      "dialog_node": "node_2_1559558911795",
+      "previous_sibling": "node_31_1558622165598"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_24_1558621533338",
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#yes",
+      "dialog_node": "node_31_1558622165598"
+    },
+    {
+      "type": "standard",
+      "title": "Number of Tickets - copy1",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_20_1559561132970",
+      "context": {
+        "TicketNumber": "@sys-number"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "@sys-number && #tickets",
+      "dialog_node": "node_2_1559671867445"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "title": "So $TicketNumber tickets for $MovieChoice at $Time on $Date?",
+            "options": [
+              {
+                "label": "Yes",
+                "value": {
+                  "input": {
+                    "text": "Yes"
+                  }
+                }
+              },
+              {
+                "label": "No",
+                "value": {
+                  "input": {
+                    "text": "No"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_29_1559566935861",
+      "metadata": {},
+      "conditions": "$Time != \"...\" && $Date != \"...\" && $MovieChoice != \"...\"",
+      "dialog_node": "node_30_1559574579862"
+    },
+    {
+      "type": "standard",
+      "title": "Number of Tickets",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "number recognised"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_14_1559560540309",
+      "context": {
+        "TicketNumber": "@sys-number"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "@sys-number && #tickets",
+      "dialog_node": "node_29_1559566935861"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay $Name, booking $MovieChoice for $Time on $Date, how many tickets would you like?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_18_1559561132970",
+      "metadata": {},
+      "conditions": "$MovieRequested == true && $MovieChoice != \"...\"",
+      "dialog_node": "node_20_1559561132970",
+      "previous_sibling": "node_19_1559561132970"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_18_1559561132970",
+      "metadata": {},
+      "conditions": "$MovieRequested == true && $MovieChoice == \"...\"",
+      "dialog_node": "node_19_1559561132970"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What day would you like to go at $Time?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1559560156996",
+      "metadata": {},
+      "conditions": "$Date == \"...\" && $Time != \"...\"",
+      "dialog_node": "node_15_1559560540309",
+      "previous_sibling": "node_12_1559560540309"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1559560156996",
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "$Time != \"...\" && $Date != \"...\"",
+      "dialog_node": "node_12_1559560540309"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, when would you like to see $MovieChoice?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_20_1558620985927",
+      "metadata": {},
+      "conditions": "$Time == \"...\" || $Date == \"...\"",
+      "dialog_node": "node_24_1559561634610",
+      "previous_sibling": "node_23_1559561583988"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay booking $MovieChoice for $Time on $Date, how many tickets would you like?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_20_1558620985927",
+      "metadata": {},
+      "conditions": "$Time != \"...\" && $Date != \"...\"",
+      "dialog_node": "node_23_1559561583988"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_28_1558621582617",
+      "event_name": "focus",
+      "dialog_node": "handler_30_1558621582617",
+      "previous_sibling": "handler_29_1558621582617"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_28_1558621582617",
+      "context": {
+        "MovieChoice": "@movies"
+      },
+      "conditions": "@movies",
+      "event_name": "input",
+      "dialog_node": "handler_29_1558621582617"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_25_1558621550722",
+      "event_name": "focus",
+      "dialog_node": "handler_27_1558621550722",
+      "previous_sibling": "handler_26_1558621550722"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_25_1558621550722",
+      "context": {
+        "MovieChoice": "@movies"
+      },
+      "conditions": "@movies",
+      "event_name": "input",
+      "dialog_node": "handler_26_1558621550722"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, when would you like to see $MovieChoice?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_18_1558620827000",
+      "metadata": {
+        "fallback": "leave"
+      },
+      "conditions": "$MovieRequested == true",
+      "dialog_node": "node_19_1558620858248",
+      "digress_out": "allow_all",
+      "previous_sibling": "slot_28_1558621582617",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "title": "Book tickets?",
+            "options": [
+              {
+                "label": "Yes please",
+                "value": {
+                  "input": {
+                    "text": "Yes"
+                  }
+                }
+              },
+              {
+                "label": "No Thank You",
+                "value": {
+                  "input": {
+                    "text": "No"
+                  }
+                }
+              }
+            ],
+            "description": "Would you like to book tickets?",
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_18_1558620827000",
+      "metadata": {},
+      "conditions": "$MovieRequested != true",
+      "dialog_node": "node_24_1558621533338",
+      "previous_sibling": "node_19_1558620858248"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_18_1558620827000",
+      "metadata": {},
+      "variable": "$MovieChoice",
+      "dialog_node": "slot_28_1558621582617"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay! No worries"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_30_1559574579862",
+      "context": {
+        "Date": "...",
+        "Time": "...",
+        "MovieChoice": "...",
+        "TicketNumber": "..."
+      },
+      "metadata": {},
+      "conditions": "#no",
+      "dialog_node": "node_2_1559584557176",
+      "previous_sibling": "node_1_1559584461871"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay! Booked"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_30_1559574579862",
+      "metadata": {},
+      "conditions": "#yes",
+      "dialog_node": "node_1_1559584461871"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_19_1558620858248",
+      "metadata": {},
+      "variable": "$MovieChoice",
+      "dialog_node": "slot_25_1558621550722"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, when would you like to see $MovieChoice?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_31_1558622165598",
+      "metadata": {},
+      "conditions": "$Time == \"...\" || $Date == \"...\"",
+      "dialog_node": "node_26_1559561859538",
+      "previous_sibling": "node_25_1559561762000"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, booking $MovieChoice for $Time on $Date, how many tickets would you like?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_31_1558622165598",
+      "metadata": {},
+      "conditions": "$Time != \"...\" && $Date != \"...\"",
+      "dialog_node": "node_25_1559561762000"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_2_1558618586278",
+      "metadata": {},
+      "variable": "$MovieChoice",
+      "dialog_node": "slot_13_1558619627851",
+      "previous_sibling": "node_20_1558620985927"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1558618586278",
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "$MovieChoice != \"...\"",
+      "dialog_node": "node_20_1558620985927",
+      "previous_sibling": "node_16_1558620006903"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_2_1558618586278",
+      "disabled": true,
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_9_1558619404554",
+      "previous_sibling": "slot_13_1558619627851"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What would you like to see?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1558618586278",
+      "metadata": {},
+      "conditions": "$MovieChoice == \"...\"",
+      "dialog_node": "node_16_1558620006903"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What time would you like to go on $Date?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_17_1559561132969",
+      "metadata": {},
+      "conditions": "$Time == \"...\" && $Date != \"...\"",
+      "dialog_node": "node_22_1559561132970",
+      "previous_sibling": "node_18_1559561132970"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What movie would you like to see at $Time on $Date?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_17_1559561132969",
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "$Time != \"...\" && $Date != \"...\"",
+      "dialog_node": "node_18_1559561132970"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1559558543820",
+      "context": {
+        "Date": "@sys-date"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "@sys-date",
+      "dialog_node": "node_17_1559561132969",
+      "previous_sibling": "node_8_1559560156996"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1559558543820",
+      "context": {
+        "Time": "@sys-time"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "@sys-time",
+      "dialog_node": "node_8_1559560156996"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_13_1558619627851",
+      "event_name": "focus",
+      "dialog_node": "handler_15_1558619627851",
+      "previous_sibling": "handler_14_1558619627851"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_13_1558619627851",
+      "context": {
+        "MovieChoice": "@movies"
+      },
+      "metadata": {},
+      "conditions": "@movies",
+      "event_name": "input",
+      "dialog_node": "handler_14_1558619627851"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, booking $MovieChoice for $Time on $Date, how many tickets would you like?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_12_1559560540309",
+      "metadata": {},
+      "conditions": "$MovieChoice != \"...\"",
+      "dialog_node": "node_14_1559560540309",
+      "previous_sibling": "node_13_1559560540309"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What movie would you like to see at $Time on $Date?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_12_1559560540309",
+      "metadata": {},
+      "conditions": "$MovieChoice == \"...\"",
+      "dialog_node": "node_13_1559560540309"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "title": "So $TicketNumber tickets for $MovieChoice at $Time on $Date?",
+            "options": [
+              {
+                "label": "Yes",
+                "value": {
+                  "input": {
+                    "text": "Yes"
+                  }
+                }
+              },
+              {
+                "label": "No",
+                "value": {
+                  "input": {
+                    "text": "No"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_2_1559671867445",
+      "metadata": {},
+      "conditions": "$Time != \"...\" && $Date != \"...\" && $MovieChoice != \"...\"",
+      "dialog_node": "node_3_1559671867466"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nice to meet you, $Name. How can I help you today?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "context": {
+        "Name": "@sys-person"
+      },
+      "metadata": {},
+      "conditions": "@sys-person",
+      "dialog_node": "node_1_1559680671529"
+    },
+    {
+      "type": "frame",
+      "title": "ticket booking",
+      "output": {
+        "generic": []
+      },
+      "context": {
+        "MovieRequested": true
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#book-ticket",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1558618586278",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_1_1558617819769",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "title": "Time & Date",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "@sys-time || @sys-date",
+      "dialog_node": "node_1_1559558543820",
+      "previous_sibling": "node_18_1558620827000"
+    },
+    {
+      "type": "frame",
+      "title": "movie-requested",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "@movies",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_18_1558620827000",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_2_1558618586278",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Aladdin, Avengers Endgame, Captain Marvel, Detective Pikachu, Eighth Grade, John Wick 3 and The Lego Movie 2 are currently showing"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "#whats-on",
+      "dialog_node": "node_1_1559671449851",
+      "previous_sibling": "node_1_1559558543820"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_1_1559671449851"
+    },
+    {
+      "type": "standard",
+      "title": "hello",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, how can I help?"
+              },
+              {
+                "text": "Hi, nice to see you."
+              },
+              {
+                "text": "Hello, how can I help you today?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "#hello",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1558617819769",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome to the Watson Movie Booking Assistant, my name is Carys, what's yours?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "Date": "...",
+        "Name": "",
+        "Time": "...",
+        "MovieChoice": "...",
+        "TicketNumber": "...",
+        "MovieRequested": false
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "ae71f955-9260-4ffc-b531-4f0b529d6fb1",
+  "counterexamples": [
+    {
+      "text": "2"
+    }
+  ],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
